@@ -1,4 +1,5 @@
 local awful = require("awful")
+local menubar = require("menubar")
 
 globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86AudioMute", function()
@@ -11,10 +12,10 @@ globalkeys = awful.util.table.join(
         os.execute("amixer sset Master 5%+")
     end),
     awful.key({                   }, "XF86MonBrightnessUp", function()
-        os.execute("xbacklight -time 100 +5")
+        os.execute("light -A 5")
     end),
     awful.key({                   }, "XF86MonBrightnessDown", function()
-        os.execute("xbacklight -time 100 -5") 
+        os.execute("light -U 5") 
     end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
