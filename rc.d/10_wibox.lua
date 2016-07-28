@@ -1,8 +1,12 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local vicious = require("vicious")
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
+-- Create a battery widget
+mybatteriewidget = wibox.widget.textbox()
+vicious.register(mybatteriewidget,vicious.widgets.bat,'$1 $2 $3', 30, "BAT1" )
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -83,6 +87,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
+    right_layout:add(mybatteriewidget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
