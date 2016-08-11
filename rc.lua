@@ -3,4 +3,3 @@ for file in configFiles:lines() do
     dofile(file)
 end
 configFiles:close()
-
