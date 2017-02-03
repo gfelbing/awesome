@@ -8,11 +8,11 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper = "/usr/share/awesome/themes/zenburn/zenburn-background.png"
+theme.wallpaper = "/home/georg/.config/awesome/wallpaper.jpg"
 -- }}}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "hack 14"
 
 -- {{{ Colors
 theme.fg_normal  = "#DCDCCC"

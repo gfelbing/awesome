@@ -1,4 +1,5 @@
 local awful = require("awful")
+require("awful.autofocus")
 local menubar = require("menubar")
 
 local focus = {
@@ -80,7 +81,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, }, "space", function() awful.layout.inc(layouts, 1) end),
     awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(layouts, -1) end),
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
-    awful.key({ modkey }, "r", function() mypromptbox[mouse.screen]:run() end),
+  --awful.key({ modkey }, "r", function() mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey }, "r", function() awful.screen.focused().mypromptbox:run() end),
     awful.key({ modkey }, "x", prompt.lua),
     awful.key({ modkey }, "p", function() menubar.show() end))
 
@@ -93,7 +95,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, }, "t", function(c) c.ontop = not c.ontop end),
     awful.key({ modkey, }, "n", client.minimize ),
     awful.key({ modkey, }, "m", client.maximize ),
-    awful.key({}, "Print", function() awful.util.spawn("screenshot") end))
+    awful.key({}, "Print", function() awful.util.spawn("gnome-screenshot -i") end))
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
