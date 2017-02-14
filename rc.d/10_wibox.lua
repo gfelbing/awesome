@@ -22,7 +22,7 @@ local mylauncher = awful.widget.launcher({
 })
 local mytextclock = awful.widget.textclock()
 local mybatteriewidget = wibox.widget.textbox()
-local mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock(" | %H:%M - %d.%m.%G |")
 local mywibox = {}
 local mypromptbox = {}
 local mylayoutbox = {}
@@ -31,7 +31,7 @@ local mytaglist = {}
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
-vicious.register(mybatteriewidget, vicious.widgets.bat, '$1 $2 $3', 30, "BAT1")
+vicious.register(mybatteriewidget, vicious.widgets.bat, ' | Bat $1 $2 $3', 30, "BAT1")
 
 mytaglist.buttons = awful.util.table.join(awful.button({}, 1, awful.tag.viewonly),
     awful.button({ modkey }, 1, awful.client.movetotag),
